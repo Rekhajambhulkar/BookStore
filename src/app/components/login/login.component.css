@@ -1,0 +1,55 @@
+img {
+    margin-left: -300px;
+    width: 350px;
+    height: 400px;
+    display: flex;
+    justify-content: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form {
+    margin-left: 30px;
+    width: 389px;
+    height: 425px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #d5d2d2;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.login {
+    margin-right: 70px;
+}
+
+.main {
+    margin-left: 10px;
+}
+
+.email {
+    width: 300px;
+}
+
+.passwrd {
+    width: 300px;
+}
+
+.pass {
+    margin-top: 20px;
+}
+
+.btn {
+    margin-left: -5px;
+    width: 300px;
+    margin-top: 15px;
+}
