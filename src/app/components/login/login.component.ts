@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
+import {UserService} from '../../service/userservice/user.service'
 
 @Component({
   selector: 'app-login',
@@ -7,17 +9,28 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-loginForm: FormGroup;
-  constructor() { }
+showPassword = false;
+  
+constructor(private userService: UserService,
+    private route:Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  loginUser(){
-    let requestData = {
-      email: this.loginForm
+  loginUser(data: any){
+    let logindata = {
+      "email": data.email,
+      "password": data.password,
     }
+    this.userService.login(logindata).subscribe((res) => {
+      localStorage.setItem('token', res['result'].accessToken);   
+      console.log("Login successfull ", res['result'].accessToken);   
+      this.route.navigate(['dashboard/books'])
+    },
+      (error) => {
+        console.log("Failed", error);
+      }
+    )
+  } 
+} 
 
-  }
-
-}
+  

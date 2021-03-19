@@ -1,29 +1,32 @@
 <div class="container bg-light">
     <!-- <img src="../../../assets/2766594.png" class="rounded-circle" width="304" height="236"> -->
 </div>
-<form class="form">
+<form #userlogin="ngForm" (ngSubmit)="loginUser(userlogin.value)">
+    <div class="form">
     <div class="d-flex flex-column my-flex-container-column">
-        <div class="d-inline-flex p-3 text-black">
-            <h2 class="login">
-                LOGIN
-            </h2>
-            <h2 class="sign">
-                SIGNUP
-            </h2>
+        <div class="header d-inline-flex p-3 text-black">
+            <div class="login">
+                <a class="btn">LOGIN</a>
+            </div>
+            <div class="sign">
+                <a  class="btn" routerLink="/register">SIGNUP</a>
+            </div>
         </div>
 
         <div class="main">
         <div class="email-id">
             <label for="email">Email Id</label><br>
-            <input type="email" formControlName="email" id="email" placeholder="Enter email"  name="email" class="email">
+            <input type="email"  id="email" placeholder="Enter email"  name="email" class="email" #email ngModel required>
         </div>
         <div class="pass">
-            <label for="pwd">Password</label><br>
-            <input type="password" id="pwd" placeholder="Enter password" name="pswd" class="passwrd">
+            <label for="password">Password</label><br>
+            <input [type]="showPassword ? 'text':'password'" type="password"  id="password" placeholder="Enter password" name="password" class="passwrd" #password ngModel required>
         </div>
-        <div class="btn">
-            <button type="button" class="btn btn-danger">Login</button>
+        <div class="forgotPassword" routerLink="/forgot"> Forgot Your Password?</div> 
+        <div class="btn1">
+            <button type="submit" class="btn1 btn-danger">Login</button>
         </div>
         </div>
     </div>
+</div>
 </form>

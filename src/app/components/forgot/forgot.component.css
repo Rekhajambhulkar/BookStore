@@ -1,0 +1,88 @@
+.header {
+    margin-top: 161px;
+    margin-left: 647px;
+    width: 260px;
+    height: 33px;
+}
+
+.forgot {
+    text-align: left;
+    font: normal normal medium 25px/33px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+    margin-top: 27px;
+    top: 221px;
+    left: 492px;
+    width: 424px;
+    height: 287px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+.head {
+    margin-left: 67px;
+    margin-top: 36px;
+    margin-right: 40px;
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.emailid {
+    margin-left: 67px;
+   
+}
+label{
+    font: normal normal medium 10px/13px Roboto;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.email {
+    width: 282px;
+    
+}
+
+.btn1 {
+    margin-left: 34px;
+    width: 282px;
+    margin-top: 17px;
+}
+
+.create {
+    top: 470px;
+    margin-top: 30px;
+    margin-left: -15px;
+    width: 424px;
+    height: 100px;
+    background: #F9F9F8 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 0px 0px 6px 6px;
+    opacity: 1;
+}
+.account{
+    margin-top: 38px;
+margin-left: 136px;
+width: 153px;
+height: 24px;
+font-size: 18px;
+text-align: left;
+font: normal normal medium 18px/24px Roboto;
+letter-spacing: 0px;
+color: #0A0102;
+text-transform: uppercase;
+opacity: 1;
+}

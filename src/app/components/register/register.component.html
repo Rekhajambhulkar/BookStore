@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="container bg-light">
+    <!-- <img src="../../../assets/2766594.png" class="rounded-circle" width="304" height="236"> -->
+</div>
+<form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm.value)" class="form">
+    <div class="d-flex flex-column my-flex-container-column">
+        <div class="header d-inline-flex p-3 text-black" >
+                <div class="login" routerLink="/login">
+                    <button type="button" class="btn">LOGIN</button>
+                </div>
+                <div class="sign">
+                    <button type="button" class="btn">SIGNUP</button>
+                </div>          
+        </div>
+
+        <div class="main">
+            <div class="fullname">
+                <label for="fullname">Full Name</label><br>
+                <input type="text"  id="name" placeholder="Enter fullname" formControlName="fullname"  name="fullname" class="name">
+            </div>
+        <div class="emailid">
+            <label for="email">Email Id</label><br>
+            <input type="email"  id="email" placeholder="Enter email" formControlName="email"  name="email" class="email">
+        </div>
+        <div class="pass">
+            <label for="pwd">Password</label><br>
+            <input type="password" id="pwd" placeholder="Enter password" formControlName="password" name="password" class="passwrd">
+        </div>
+        <div class="phone">
+            <label for="phoneNumber">Mobile Number</label><br>
+            <input type="text"  id="mobilenumber" placeholder="Enter MobileNumber" formControlName="mobilenumber"  name="mobilenumber" class="phone">
+        </div>
+        
+        <div class="btn1">
+            <button type="submit" class="btn1 btn-danger">Signup</button>
+        </div>
+        </div>
+    </div>
+</form>

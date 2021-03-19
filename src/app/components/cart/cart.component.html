@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="mycart d-inline-flex-column">
+        <h4>
+            MY Cart
+        </h4>
+        <h5>
+            ({{totalItems}})
+        </h5>
+        <div *ngFor="let items of booksArray">
+            <div>
+                <div class="imgBook">
+                    <img src="../../../assets/Image 11.png">
+                </div>
+                <div class="bookname">
+                    <h4>
+                        {{items.bookName}}
+                    </h4>
+                    <h5>
+                        {{items.author}}
+                    </h5>
+                    <div class="row px-3">
+                        <div class="rating mr-2">4.5&#9733;</div>
+                        <div class="rt">(20)</div>
+                    </div>
+                    <h3>
+                        Rs.{{items.discountPrice}}
+                    </h3>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- <div>
+            <button type="button" class="btn btn-info">PLACE ORDER</button>
+        </div> -->
+    </div>
+
+    <!-- <div class="address">
+
+    </div>
+
+    <div class="order">
+
+    </div> -->
