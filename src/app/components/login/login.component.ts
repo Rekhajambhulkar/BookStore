@@ -22,7 +22,9 @@ constructor(private userService: UserService,
       "password": data.password,
     }
     this.userService.login(logindata).subscribe((res) => {
-      localStorage.setItem('token', res['result'].accessToken);   
+      console.log("Login successfull ", res['result'].accessToken);   
+      localStorage.setItem('token', res['result'].accessToken);  
+       
       console.log("Login successfull ", res['result'].accessToken);   
       this.route.navigate(['dashboard/books'])
     },
@@ -31,6 +33,8 @@ constructor(private userService: UserService,
       }
     )
   } 
+
+  
 } 
 
   

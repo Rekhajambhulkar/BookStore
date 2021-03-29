@@ -7,21 +7,35 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { GetBooksComponent } from './components/get-books/get-books.component'
 import { ProfileComponent } from './components/profile/profile.component';
 import { CartComponent } from './components/cart/cart.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import {AuthguardGuard} from './authguard.guard';
+import {AdminComponent} from './components/admin/admin.component';
+import {AdminDashboardComponent} from './components/admin-dashboard/admin-dashboard.component'
+import {AdminRegistrationComponent} from './components/admin-registration/admin-registration.component';
+import {AddBooksComponent} from './components/add-books/add-books.component'
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {
-    path: 'dashboard', component: DashboardComponent,
+  {path: 'dashboard', component: DashboardComponent,
+    canActivate: [AuthguardGuard],
     children: [
-      { path: 'books', component: GetBooksComponent },
+      { path: 'books', component: GetBooksComponent,},
       { path: 'profile', component: ProfileComponent },
       { path: 'cart', component: CartComponent },
-
+      { path: 'wishlist', component: WishlistComponent },
     ]
-  }
+  },
+  {path: 'reg', component: AdminRegistrationComponent,},
+  {path: 'adminLogin', component: AdminComponent},
+  {path: 'admindashboard', component: AdminDashboardComponent,
+  canActivate: [AuthguardGuard],
+  children: [
+    { path: 'book', component: AddBooksComponent,},
+    ]
+  },
 ];
 
 @NgModule({

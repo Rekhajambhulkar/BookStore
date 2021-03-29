@@ -2,7 +2,7 @@
     <img src="../../../assets/2766594.png" class="rounded-circle" width="304" height="236">
     <h5 class="book">ONLINE BOOK SHOPPING</h5>
 </div>
-<form #userlogin="ngForm" (ngSubmit)="loginUser(userlogin.value)">
+<form #userlogin="ngForm" (ngSubmit)="adminLogin(userlogin.value)">
     <div class="form">
         <div class="d-flex flex-column my-flex-container-column">
             <div class="header d-inline-flex p-3 text-black">
@@ -10,10 +10,9 @@
                     <a class="btn">LOGIN</a>
                 </div>
                 <div class="sign">
-                    <a class="btn" routerLink="/register">SIGNUP</a>
+                    <a class="btn" routerLink="/reg">SIGNUP</a>
                 </div>
             </div>
-
             <div class="main">
                 <div class="email-id">
                     <label for="email">Email Id</label><br>
@@ -24,9 +23,7 @@
                     <input [type]="showPassword ? 'text':'password'" type="password" id="password" placeholder="Enter password" name="password" class="passwrd" #password ngModel required>
                 </div>
                 <div class="forgotPassword" routerLink="/forgot" style="font-size: 14px; margin-left:-5px;margin-top: 2px;"> Forgot Your Password?</div>
-                <div style="margin-top: 2px;">
-                    <input type="checkbox" routerLink="/adminLogin" style="margin-top: 2px;"> <label for="adminLogin" style="color: brown; font-size: 12px;margin-left: 5px;font-weight: 500;">Login As Admin</label>
-                </div>
+
                 <div>
                     <button type="submit" class="btnn">Login</button>
                 </div>
@@ -43,7 +40,6 @@
                         <button type="button" class="btt btn-primary">Google</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

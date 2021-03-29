@@ -1,0 +1,151 @@
+<div class="border">
+    <button class="btn btn-md btn-primary" (click)="open(content)">
+        <i class='fa fa-user'></i>Add Book</button>
+</div>
+
+<table class="tab table-bordered container mt-4 ">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Author</th>
+            <th>Book Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th scope="col ">Quantity</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of booksArray">
+            <td><span>{{book.id}}</span></td>
+            <td><span>{{book.bookName}}</span></td>
+            <td><span>{{book.author}}</span></td>
+            <td><span>{{book.description}}</span></td>
+            <td><span>{{book.quantity}}</span></td>
+            <td><span>{{book.price}}</span></td>
+            <td><span>{{book.discountPrice}}</span></td>
+            <td>
+                <!-- <button class="btn btn-sm btn-info ">
+                  <i class="fa fa-search "></i>Details</button>                                                                                                                                                         n> -->
+                <button class="btn "><i class="fa fa-edit " (click)="openEdit(contentEdit, book)"></i></button></td>
+            <td><button class="btn "><i class="fa fa-trash " style="color: gray; " (click)="deleteBook(book._id) "></i></button></td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #content let-modal style="height: -20px;">
+    <div class="modal-content">
+        <div class="modal-header ">
+            <h5 class="modal-title " id="modal-basic-title ">Add Book</h5>
+            <button type="button " class="close " aria-label="Close " (click)="modal.dismiss( 'Cross click') ">
+        <span aria-hidden="true ">&times;</span>
+      </button>
+        </div>
+        <div class="modal-body " style="margin-top: -3px;">
+            <form #f="ngForm" (ngSubmit)="addBook(f) " novalidate>
+                <div class="form-group ">
+                    <label for="bookName ">BookName</label>
+                    <div class="input-group ">
+                        <input id="bookName" value="bookName" name="bookName" class="form-control" ngModel>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="author ">Author</label>
+                    <div class="input-group ">
+                        <input id="author" value="author" name="author" class="form-control " ngModel>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="description ">Description</label>
+                    <div class="input-group ">
+                        <input id="description" name="description" class="form-control" ngModel>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="quantity ">Quantity</label>
+                    <div class="input-group ">
+                        <input id="quantity" name="quantity" class="form-control" ngModel>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="price ">Price</label>
+                    <div class="input-group ">
+                        <input id="price" name="price" class="form-control" ngModel>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="discountPrice ">DiscountPrice</label>
+                    <div class="input-group ">
+                        <input id="discountPrice" name="discountPrice" class="form-control" ngModel>
+                    </div>
+                </div>
+
+                <div class=" border1 text-center ">
+                    <button data-dismiss="modal " class="subbtn btn-info ">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer ">
+            <button type="button " class="btn btn-outline-dark " (click)="modal.close( 'Save click') " style="margin-right: 5p; ">Close</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #contentEdit let-modal class="head">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 *ngIf="!isAddMode" class="modal-title" id="modal-basic-title2">Edit Book</h4>
+            <button type="button" class="close " aria-label="Close " (click)="modal.dismiss( 'Cross click') ">
+        <span aria-hidden="true ">&times;</span>
+      </button>
+        </div>
+        <div class="modal-body ">
+            <form [formGroup]="editForm" (click)="onSubmit()" novalidate>
+                <div class="form-group1 ">
+                    <label for="bookname1 ">BookName</label>
+                    <div class="input-group1 ">
+                        <input id="bookNmae1" class="form-controll" formControlName="bookName">
+                    </div>
+                </div>
+                <div class="form-group1">
+                    <label for="author1 ">Author</label>
+                    <div class="input-group1 ">
+                        <input id="author1" class="form-controll" formControlName="author">
+                    </div>
+                </div>
+                <div class="form-group1 ">
+                    <label for="description1">Description</label>
+                    <div class="input-group1 ">
+                        <input id="description" class="form-controll" formControlName="description">
+                    </div>
+                </div>
+                <div class="form-group1">
+                    <label for="quantity1">Quantity</label>
+                    <div class="input-group1">
+                        <input id="quantity1" class="form-controll" formControlName="quantity">
+                    </div>
+                </div>
+                <div class="form-group1 ">
+                    <label for="price">Price</label>
+                    <div class="input-group1">
+                        <input id="price1" class="form-controll" formControlName="price">
+                    </div>
+                </div>
+                <div class="form-group1 ">
+                    <label for="discountPrice1">DiscountPrice</label>
+                    <div class="input-group1">
+                        <input id="discountPrice1" class="form-controll" formControlName="discountPrice">
+                    </div>
+                </div>
+
+                <div class=" border text-center" style="width: 50%;">
+                    <button data-dismiss="modal" class="subbtn btn-info" (click)="updateBook()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer " style="margin-right: 20px; ">
+            <button type="button " class="btn btn-outline-dark " (click)="modal.close( 'Save click') " style="margin-right: 70px; ">Close</button>
+        </div>
+    </div>
+</ng-template>

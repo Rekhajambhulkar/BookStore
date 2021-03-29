@@ -1,7 +1,7 @@
 .container {
     width: 624px;
     height: 391px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
     border-radius: 21px;
     opacity: 1;
     margin-top: 185px;
@@ -10,17 +10,17 @@
 
 img {
     /* margin-left: -300px;
-    width: 350px;
-    height: 400px;
-    display: flex;
-    justify-content: left;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 25px; */
+width: 350px;
+height: 400px;
+display: flex;
+justify-content: left;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: 1px solid black;
+border-radius: 10px;
+padding: 25px; */
     margin-top: 57px;
     margin-left: 53px;
     width: 245px;
@@ -79,32 +79,42 @@ label {
 }
 
 .main {
-    margin-left: 130px;
+    margin-left: 100px;
+}
+
+.fullname {
+    margin-top: -10px;
+}
+
+.name {
+    margin-top: -10px;
+    width: 300px;
+    cursor: pointer;
 }
 
 .email {
+    margin-top: -10px;
+    width: 300px;
     cursor: pointer;
-    background: #FFFFFF;
-    width: 252px;
-    height: 35px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #A03037;
-    border-radius: 2px;
-    opacity: 1;
+}
+
+.emailid {
+    margin-top: 10px;
 }
 
 .passwrd {
-    width: 252px;
-    height: 35px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #A03037;
-    border-radius: 2px;
-    opacity: 1;
-    margin-left: 0px;
+    margin-top: -10px;
+    width: 300px;
+    cursor: pointer;
 }
 
 .pass {
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.phone {
+    width: 300px;
+    cursor: pointer;
 }
 
 .btn {
@@ -114,58 +124,20 @@ label {
     font-weight: bold;
 }
 
-.forgotPassword {
-    float: right;
-    margin-right: 90px;
-    color: gray;
-    cursor: pointer;
+.btn1 {
+    margin-left: 1px;
+    width: 300px;
+    margin-top: 10px;
 }
 
 .btnn {
-    margin-left: 3px;
-    width: 255px;
-    margin-top: 20px;
+    margin-left: 5px;
+    width: 300px;
+    margin-top: 15px;
     color: white;
     height: 37px;
     background-color: brown;
     border: none;
-}
-
-hr {
-    width: 64px;
-    height: 0px;
-    border: 1px solid #E1E4EA;
-    opacity: 1;
-}
-
-h6 {
-    text-align: left;
-    font: normal normal bold 14px/18px Meiryo UI;
-    letter-spacing: 0px;
-    color: #343434;
-    text-transform: uppercase;
-    opacity: 1;
-    margin-top: 6px;
-    margin-left: 18px;
-}
-
-.bt {
-    background: #4266B2 0% 0% no-repeat padding-box;
-    border-radius: 3px;
-    opacity: 1;
-    width: 126px;
-    height: 37px;
-}
-
-.btt {
-    width: 119px;
-    height: 37px;
-    background: #F5F5F5 0% 0% no-repeat padding-box;
-    border: 1px solid #E4E4E4;
-    border-radius: 3px;
-    opacity: 1;
-    color: black;
-    margin-left: 7px;
 }
 
 @media only screen and (max-width: 360px) {
@@ -178,5 +150,8 @@ h6 {
     .form {
         margin-left: -548px;
         width: 345px;
+    }
+    .btn1 {
+        margin-left: -8px;
     }
 }

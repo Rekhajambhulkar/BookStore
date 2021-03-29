@@ -1,69 +1,103 @@
-.container {
-    margin-left: 215px;
-    margin-top: 42px;
-}
-
-input {
-    width: 511px;
-    height: 45px;
-    background: #F5F5F5 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2E2;
-    border-radius: 2px;
-    opacity: 1;
-    margin-bottom: 5px;
-}
-
-h4 {
-    margin-left: -20px;
-    margin-top: -10px;
-}
-
-label {
-    font-weight: 500;
-}
-
-.form-group {
-    margin-left: 8px;
-}
-
-.address {
-    margin-left: 200px;
-    margin-top: 10px;
-}
-
-.lbl {
-    margin-top: -10px;
-}
-
-.form-control {
-    width: 512px;
-    height: 82px;
-    background: #F5F5F5 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2E2;
-    border-radius: 2px;
-    opacity: 1;
-}
-
-.citystate {
-    margin-left: -10px;
-}
-
-.city {
-    width: 256px;
-}
-
-.state {
-    width: 256px;
-    margin: 12px;
-    margin-top: 1px;
-}
-
-.btn {
-    margin-left: 128px;
-}
-
-input[type=radio] {
-    border: 0px;
-    width: 100%;
-    height: 1em;
-}
+    .container {
+        margin-left: 215px;
+        margin-top: 42px;
+    }
+    
+    input {
+        width: 511px;
+        height: 45px;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border: 1px solid #E2E2E2;
+        border-radius: 2px;
+        opacity: 1;
+        margin-bottom: 5px;
+    }
+    
+    h4 {
+        margin-left: -20px;
+        margin-top: -10px;
+    }
+    
+    label {
+        font-weight: 500;
+    }
+    
+    .form-group {
+        margin-left: 8px;
+    }
+    
+    .address {
+        margin-left: 200px;
+        margin-top: 10px;
+    }
+    
+    .lbl {
+        margin-top: -10px;
+    }
+    
+    .form-control {
+        width: 512px;
+        height: 82px;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border: 1px solid #E2E2E2;
+        border-radius: 2px;
+        opacity: 1;
+    }
+    
+    .citystate {
+        margin-left: -10px;
+    }
+    
+    .city {
+        width: 256px;
+    }
+    
+    .state {
+        width: 256px;
+        margin: 12px;
+        margin-top: 1px;
+    }
+    
+    .btn {
+        margin-left: 128px;
+    }
+    
+    input[type=radio] {
+        border: 0px;
+        width: 100%;
+        height: 1em;
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .container {
+            margin-left: 5px;
+        }
+        input {
+            width: 97%;
+        }
+        .address {
+            margin-left: 5px;
+        }
+        .hd {
+            font-size: 15px;
+        }
+        .btn {
+            width: 150px;
+            font-size: 12px;
+            margin-left: 48px;
+        }
+        .form-control {
+            width: 300px;
+        }
+        .citystate {
+            display: flex;
+            flex-direction: column;
+        }
+        .city {
+            width: 99%;
+        }
+        .state {
+            width: 97%;
+            margin-left: -2px;
+        }
+    }

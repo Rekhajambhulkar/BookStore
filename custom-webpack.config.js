@@ -7,11 +7,20 @@ module.exports = {
     },
     mode: 'development',
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.ts$/,
                 use: 'ts-loader',
             },
+
+            {
+                test: /\.scss$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "scss-loader" },
+                    { loader: "sass-loader" }
+                ]
+            }
+
         ],
     },
     resolve: {
