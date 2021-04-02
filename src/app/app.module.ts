@@ -20,6 +20,8 @@ import {AuthguardGuard} from './authguard.guard';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminRegistrationComponent } from './components/admin-registration/admin-registration.component';
 import { AddBooksComponent } from './components/add-books/add-books.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
+import { FilterPipe } from './components/app-pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { AddBooksComponent } from './components/add-books/add-books.component';
     AdminDashboardComponent,
     AdminRegistrationComponent,
     AddBooksComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { AddBooksComponent } from './components/add-books/add-books.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    JwPaginationModule,
   ],
   providers: [AuthguardGuard],
   bootstrap: [AppComponent]

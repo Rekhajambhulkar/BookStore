@@ -251,15 +251,24 @@ input [type=radio] {
         margin-top: 5px;
     }
     .button {
-        margin-right: -15px;
+        margin-right: -25px;
     }
     .address {
         width: 355px;
         margin-left: 2px;
     }
+    .place {
+        font-size: 14px;
+        margin-right: 20px;
+    }
     .btn {
         margin-left: 15px;
         margin-top: 2px;
+    }
+    .btn1 {
+        margin-right: 30px;
+        margin-top: 20px;
+        font-size: 14px;
     }
     .pro {
         flex-direction: column;
@@ -273,5 +282,9 @@ input [type=radio] {
     }
     .citystate {
         flex-direction: column;
+    }
+    .btt {
+        margin-right: 25px;
+        font-size: 14px;
     }
 }

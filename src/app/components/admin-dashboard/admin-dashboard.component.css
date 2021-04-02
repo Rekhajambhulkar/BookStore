@@ -39,21 +39,21 @@ h1 {
 
 @media only screen and (max-width: 360px) {
     .navbar-light {
-        width: 170%;
+        width: 220%;
     }
     img {
-        margin-left: 2px;
+        margin-left: 5px;
     }
     h1 {
-        margin-right: 415px;
+        margin-right: 580px;
     }
     .form-control {
+        width: 35%;
         margin-left: 200px;
-        width: 110px;
-        margin-top: -50px;
+        margin-top: -48px;
     }
     .fa {
+        margin-left: -110px;
         margin-top: -50px;
-        margin-left: -95px;
     }
 }

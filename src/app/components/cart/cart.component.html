@@ -32,24 +32,23 @@
                         </div>
                         <a class="remove" style="margin-left: 55px; font-weight: bold;font-size: 12px;" (click)="removeItems(book._id)">Remove</a>
                     </div>
-
                 </div>
             </div>
         </div>
-        <div>
-            <button type="button" class="button btn-primary" (click)="toggleDisplay() ">PLACE ORDER</button>
+        <div class="place">
+            <button type="button" class="button btn-primary" (click)="toggleDisplay()" *ngIf="!isShow">PLACE ORDER</button>
         </div>
     </div>
 </div>
-<div class="address">
-    <div *ngIf="!isShow">
+<div class="address ">
+    <div *ngIf="!isShow ">
         <h5 class="details ">Address Details</h5>
     </div>
 
-    <div class="customer" *ngIf="isShow">
-        <div class="d d-inline-flex" *ngIf="isShow">
-            <h5 class="details" style="font-size: 18px;" (click)="toggleDisplay() ">Customer Details</h5>
-            <button class="btn btn-outline-danger" type="button" style="margin-top: 20px;">Add New Address</button><br>
+    <div class="customer " *ngIf="isShow ">
+        <div class="d d-inline-flex " *ngIf="isShow ">
+            <h5 class="details " style="font-size: 18px; " (click)="toggleDisplay() ">Customer Details</h5>
+            <button class="btn btn-outline-danger " type="button " style="margin-top: 20px; ">Add New Address</button><br>
         </div>
         <div class="pro d-flex p-3 ">
             <div>
@@ -87,42 +86,42 @@
         </div>
         <div class="form-check-inline ">
             <label class="form-check-label " for="radio2 ">
-                  <input class="radio" type="radio" class="form-check-input " id="radio2 " name="optradio " value="option2 " checked>Work
+                  <input class="radio" type="radio" class="form-check-input" id="radio2 " name="optradio " value="option2 " checked>Work
                 </label>
         </div>
         <div class="form-check-inline ">
             <label class="form-check-label ">
-                  <input class="radio" type="radio" class="form-check-input " id="radio2 " name="optradio " value="option3 " checked>Other
+                  <input class="radio" type="radio" class="form-check-input" id="radio2 " name="optradio " value="option3 " checked>Other
             </label>
         </div>
-        <div>
-            <button type="button" class="button btn-primary" (click)="toggleDisplay1() " style="margin-left: 35px;">CONTINUE</button>
+        <div class="btn1" (click)="toggleDisplay1()">
+            <button type="button" class="button btn-primary " style="margin-left: 35px;" *ngIf="!show">CONTINUE</button>
         </div>
     </div>
 </div>
-<div class="order">
-    <div *ngIf="!show">
-        <h5 class="summ" (click)="toggleDisplay1()">Order Summery</h5>
+<div class="order ">
+    <div *ngIf="!show ">
+        <h5 class="summ " (click)="toggleDisplay1() ">Order Summery</h5>
     </div>
-    <div class="odd" *ngIf="show">
-        <div class="d d-inline-flex" *ngIf="show">
-            <h5 class="summ" style="font-size: 18px;" (click)="toggleDisplay1() ">Order Summery</h5>
+    <div class="odd " *ngIf="show ">
+        <div class="d d-inline-flex " *ngIf="show ">
+            <h5 class="summ " style="font-size: 18px; " (click)="toggleDisplay1() ">Order Summery</h5>
         </div>
-        <div class="book1 d-inline-flex-column p-4" *ngFor="let book of booksArray">
-            <div>
-                <div class="d-inline-flex">
-                    <div class="imgBook">
-                        <img src="../../../assets/Image 11.png">
+        <div *ngFor="let book of booksArray">
+            <div class="book1 d-inline-flex-column p-4 ">
+                <div class=" d-inline-flex ">
+                    <div class="imgBook ">
+                        <img src="../../../assets/Image 11.png ">
                     </div>
-                    <div class="bookname">
+                    <div class="bookname ">
                         <h4>{{book.product_id.bookName}}</h4>
                         <h5>{{book.product_id.author}}</h5>
                         <h3>Rs.{{book.product_id.price}}</h3>
                     </div>
                 </div>
             </div>
-            <div>
-                <button type="button" class="button btn-primary" (click)="orderPlace(book)">CHECKOUT</button>
+            <div class="btt">
+                <button type="button " class="button btn-primary " (click)="orderPlace(book) ">CHECKOUT</button>
             </div>
         </div>
     </div>

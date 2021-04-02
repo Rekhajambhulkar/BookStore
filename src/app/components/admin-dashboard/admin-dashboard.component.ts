@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataserviceService } from '../../service/dataservic/dataservice.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-
-  constructor() { }
+  searchValue:any;
+  namesearch:string;
+  constructor(private dataService:DataserviceService) { }
 
   ngOnInit(): void {
+  }
+
+  search(event:any) {
+    console.log(event.target.value);
+    let values = event.target.value;
+    this.dataService.changeMessage(values);
   }
 
 }

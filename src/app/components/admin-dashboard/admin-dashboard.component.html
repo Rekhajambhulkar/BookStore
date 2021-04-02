@@ -4,9 +4,8 @@
         <h1 style="color: white;">BookStore</h1>
     </div>
     <form class="form-inline my-2 my-lg-0  d-inline-flex">
-        <input class="form-control mr-sm-2" type="search" style="padding-left: 45px;" placeholder="Search" aria-label="Search">
-        <i class="fa fa-search"></i>
-
+        <input class="form-control mr-sm-2" type="search" style=" padding-left: 45px; " placeholder="Search" (keyup)="search($event)" ria-label="Search ">
+        <i class="sear" class="fa fa-search"></i>
     </form>
 </nav>
 <router-outlet></router-outlet>

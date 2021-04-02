@@ -143,6 +143,7 @@
     @media only screen and (max-width: 360px) {
         .container {
             visibility: hidden;
+            position: fixed;
         }
         img {
             visibility: hidden;
@@ -150,6 +151,7 @@
         .form {
             margin-left: -548px;
             width: 345px;
+            position: fixed;
         }
         .btn1 {
             margin-left: -8px;

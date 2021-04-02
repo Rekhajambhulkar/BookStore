@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from '../../service/bookService/book.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
@@ -8,6 +8,7 @@ import { DataserviceService } from '../../service/dataservic/dataservice.service
 
 export class Books{
   constructor(
+    public Id: string,
      public bookName: string,
      public author:string, 
      public description:string, 
@@ -29,11 +30,17 @@ export class AddBooksComponent implements OnInit {
   isAddMode: boolean;
   submitted = false;
   bookId:any;
-
-  constructor(private dataService:DataserviceService, private route: ActivatedRoute,private router: Router,private bookService: BookService, private modalService: NgbModal, private http: HttpClient, private fb: FormBuilder) {}
+  collectionSize = 15;
+  page = 1;
+  pageSize = 4;
+  nameSearch:string;
+  bookName:any;
+  searchValue:any;
+  //searchValue:string = '';
+  constructor(private dataService:DataserviceService,private router: Router,private bookService: BookService, private modalService: NgbModal, private http: HttpClient, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.getBooks(); 
+        this.getBooks();
     this.editForm = this.fb.group({
       bookName: [''],
       author: [''],
@@ -43,14 +50,15 @@ export class AddBooksComponent implements OnInit {
       discountPrice: ['']
     });
     this.dataService.currentMessage.subscribe((msg) => {
-      console.log(" message ", msg);
+      console.log("message", msg);
+      this.searchValue = msg;
       this.getBooks();
+
     })
   }
 
   addBook(f) {
     //console.log(f);
-    
     console.log(f.value)
     let data = {
       "bookName": f.value.bookName,
@@ -64,6 +72,7 @@ export class AddBooksComponent implements OnInit {
     this.bookService.addBook(data).subscribe(res => {
       console.log("Book add", res['result']);
       this.booksArray = res['result'];
+      this.getBooks();
     })
   }
 
@@ -86,7 +95,6 @@ export class AddBooksComponent implements OnInit {
     }
   }
 
-
   getBooks() {
     this.bookService.getBooks().subscribe(res => {
       console.log("Success", res['result'])
@@ -102,6 +110,7 @@ export class AddBooksComponent implements OnInit {
   deleteBook(id: string) {
     this.bookService.deleteBook(id).subscribe(res => {
       console.log("Deleted successfully", res)
+      this.getBooks();
     })
   }
 
@@ -126,6 +135,8 @@ export class AddBooksComponent implements OnInit {
 
    this.bookService.updateDetails(this.bookId._id, data).subscribe(res => {
       console.log("Updated successfully", res);
+      this.getBooks();
+
     })
   }
 

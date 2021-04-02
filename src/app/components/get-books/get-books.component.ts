@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { BookService } from '../../service/bookService/book.service'
 import { Router } from '@angular/router'
 
@@ -11,10 +11,16 @@ import { Router } from '@angular/router'
 export class GetBooksComponent implements OnInit {
   count = 0;
   booksArray: any = [];
-  books:any = [];
+  books: any = [];
   totalBooks: number;
   product_id: any;
-  book:any;
+  book: any;
+  searchValue: string;
+  bookName: any;
+  page = 1;
+  pageSize = 4;
+
+
   //addToCart:boolean = false;
   constructor(private bookService: BookService, private route: Router) { }
 
@@ -28,7 +34,7 @@ export class GetBooksComponent implements OnInit {
       this.booksArray = res;
       console.log(this.booksArray)
       this.booksArray = this.booksArray.result;
-     this.totalBooks = this.booksArray.length;
+      this.totalBooks = this.booksArray.length;
     },
       error => {
         console.log("Error", error);
@@ -37,25 +43,25 @@ export class GetBooksComponent implements OnInit {
 
   addCart(book: any) {
     this.books.addedToCart = false;
-    for(let b of this.booksArray){
-      if(this.books.product_id == b.product_id){
-        this.books.addedToCart=true;
+    for (let b of this.booksArray) {
+      if (this.books.product_id == b.product_id) {
+        this.books.addedToCart = true;
       }
     }
     console.log(book);
     this.bookService.addCart(book).subscribe(res => {
       console.log("Success", res)
       this.books = res;
-       console.log("book", this.books);
+      console.log("book", this.books);
       // this.add();
       this.getCartItems();
     })
-  } 
+  }
 
-  add(){
-    for(let i = 0; i < this.booksArray.length; i++){
-      for(let j = 0; j < this.books.length; j++){
-        if(this.booksArray[i]._id == this.books[j].product_id._id){
+  add() {
+    for (let i = 0; i < this.booksArray.length; i++) {
+      for (let j = 0; j < this.books.length; j++) {
+        if (this.booksArray[i]._id == this.books[j].product_id._id) {
           this.books[j].isAdded = true;
           this.books[j].product_id = this.booksArray[i]._id;
         }
@@ -63,10 +69,10 @@ export class GetBooksComponent implements OnInit {
     }
   }
 
-  getCartItems(){
-    this.bookService.getCartItems().subscribe(res =>{
+  getCartItems() {
+    this.bookService.getCartItems().subscribe(res => {
       console.log("Get successfully", res)
-      let result:any = res['result'];
+      let result: any = res['result'];
       this.books = result;
       console.log(this.books);
     })
@@ -76,24 +82,60 @@ export class GetBooksComponent implements OnInit {
   //   for(let i = 0; i < this.booksArray.length; i++){
   //     for(let j = 0; j < this.book.length; j++){
   //       if(this.booksArray[i].prodict_id._id == this.book[j]._id){
-          
+
   //       }
   //     }
   //   }
   // }
 
-wishList(book:any){
-  console.log(book)
-  this.bookService.postWishList(book).subscribe(res =>{
-    console.log("Successfully Added", res);
+  wishList(book: any) {
+    console.log(book)
+    this.bookService.postWishList(book).subscribe(res => {
+      console.log("Successfully Added", res);
+    })
+  }
+
+  removeFromWishList(data: any) {
+    this.bookService.remove(data).subscribe(res => {
+    })
+  }
+
+
+  sortByName() {
+    this.booksArray.sort((a, b) => a.bookName.localeCompare(b.bookName));
+  }
+
+  // sortByPrice() {
+  //   this.booksArray.sort((a, b) => a.price.localeCompare(b.price));
+  // }
+
+  sortByPrice(){
+    //  this.booksArray.sort((a,b) =>
+    //    a.price > b.price ? 1 : a.price < b.price ? -1 : 0)
+    this.booksArray.sort(this.sortByProperty());
+  }
+  
+  sortByProperty(){  
+    return this.booksArray.sort((a,b) =>{
+
+       if((a.price) > (b.price)){
+          return 1;  
+       }
+       else if((a.price) < (b.price))  {
+          return -1;  
+       }else{
+       return 0;  
+       }
+    }) 
+ 
+  
+      // return this.booksArray.sort((a:any, b:any) =>
+      //   (a.price) - (b.price));
+    }
+  
     
-  })
+ 
 }
 
-removeFromWishList(data:any){
-  this.bookService.remove(data).subscribe(res =>{
 
-  })
-}
-}
 

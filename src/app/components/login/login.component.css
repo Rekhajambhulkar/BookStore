@@ -171,6 +171,7 @@ h6 {
 @media only screen and (max-width: 360px) {
     .container {
         visibility: hidden;
+        position: fixed;
     }
     img {
         visibility: hidden;
@@ -178,5 +179,6 @@ h6 {
     .form {
         margin-left: -548px;
         width: 345px;
+        position: fixed;
     }
 }

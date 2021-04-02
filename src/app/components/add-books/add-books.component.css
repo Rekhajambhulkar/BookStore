@@ -1,93 +1,111 @@
-.border {
-    padding: 10px;
-}
-
-.btn {
-    margin-right: 10px;
-}
-
-.fa {
-    margin-right: 10px;
-}
-
-.form-group input {
-    width: 10%;
-}
-
-.form-group {
-    margin-top: -12px;
-}
-
-.form-group1 input {
-    width: 50%;
-}
-
-.head {
-    width: 70px;
-}
-
-
-/* .input-group1 {} */
-
-th {
-    background-color: brown;
-    color: white;
-}
-
-table {
-    padding-left: 10px;
-}
-
-.tab {
-    counter-reset: serial-number;
-    /* Set the serial number counter to 0 */
-}
-
-.tab td:first-child:before {
-    counter-increment: serial-number;
-    /* Increment the serial number counter */
-    content: counter(serial-number);
-    /* Display the counter */
-}
-
-@media only screen and (max-width: 360px) {
-    .temp {
-        width: 20%;
-    }
-    #content {
-        width: 30%;
-    }
-    .ng-temp {
-        width: 50%;
-    }
-    .modal-header {
-        position: relative;
-        width: 50%;
-    }
-    .input-group input {
-        width: 50px;
-    }
-    .form-group {
-        width: 270px;
-        margin-top: -10px;
-    }
-    .modal-body {
-        width: 200px;
-    }
-    .modal-content {
-        width: 55%;
-        position: fixed;
-        height: 60%;
-    }
-    .modal-footer {
-        margin-top: -8px;
-    }
-    .input-group1 input {
-        width: 150%;
-    }
-    .modal-content {
-        width: 55%;
-        position: fixed;
-        height: 60%;
-    }
-}
+        .border {
+            padding: 10px;
+        }
+        
+        .btn {
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+        
+        .fa {
+            margin-right: 10px;
+        }
+        
+        .form-group input {
+            width: 10%;
+        }
+        
+        .form-group {
+            margin-top: -12px;
+        }
+        
+        .form-group1 input {
+            width: 90%;
+            border-radius: 5px;
+            height: 35px;
+            margin-left: 10px;
+        }
+        
+        .form-group1 label {
+            margin-left: 10px;
+        }
+        
+        .modal-content {
+            width: 30%;
+            position: fixed;
+            height: 90%;
+        }
+        
+        .head {
+            width: 70px;
+        }
+        /* .input-group1 {} */
+        
+        th {
+            background-color: brown;
+            color: white;
+        }
+        
+        table {
+            padding-left: 10px;
+        }
+        
+        .tab {
+            counter-reset: serial-number;
+            /* Set the serial number counter to 0 */
+        }
+        
+        .tab td:first-child:before {
+            counter-increment: serial-number;
+            /* Increment the serial number counter */
+            content: counter(serial-number);
+            /* Display the counter */
+        }
+        
+        @media only screen and (max-width: 360px) {
+            .temp {
+                width: 20%;
+            }
+            .btn {
+                margin-top: 30px;
+            }
+            #content {
+                width: 30%;
+            }
+            .ng-temp {
+                width: 50%;
+            }
+            .modal-header {
+                position: relative;
+                width: 50%;
+            }
+            .input-group input {
+                width: 50px;
+            }
+            .form-group {
+                width: 270px;
+                margin-top: -10px;
+            }
+            .modal-body {
+                width: 200px;
+            }
+            .modal-content {
+                width: 55%;
+                position: fixed;
+                height: 60%;
+            }
+            .modal-footer {
+                margin-top: -8px;
+            }
+            .input-group1 input {
+                width: 150%;
+            }
+            .modal-content {
+                width: 55%;
+                position: fixed;
+                height: 60%;
+            }
+            .border {
+                padding: 10px;
+            }
+        }
