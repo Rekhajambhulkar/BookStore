@@ -8,11 +8,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "heroku-postbuild": "ng build --prod",
-        "dev:ssr": "ng run BookStore:serve-ssr",
-        "serve:ssr": "node dist/BookStore/server/main.js",
-        "build:ssr": "ng build --prod && ng run BookStore:server:production",
-        "prerender": "ng run BookStore:prerender"
+        "heroku-postbuild": "ng build --prod"
+
     },
     "private": true,
     "dependencies": {
@@ -26,10 +23,8 @@
         "@angular/localize": "^11.2.7",
         "@angular/platform-browser": "~11.2.5",
         "@angular/platform-browser-dynamic": "~11.2.5",
-        "@angular/platform-server": "~11.2.5",
         "@angular/router": "~11.2.5",
         "@ng-bootstrap/ng-bootstrap": "^9.0.2",
-        "@nguniversal/express-engine": "^11.2.1",
         "angular-oauth2-oidc": "^10.0.3",
         "bootstrap": "^4.5.0",
         "bootstrap-icons": "^1.4.0",
