@@ -1,9 +1,10 @@
                    .heade {
                        margin-bottom: -90px;
+                       min-height: 80%;
                    }
                    
                    h2 {
-                       margin-left: 160px;
+                       margin-left: 170px;
                        margin-top: 26px;
                        bottom: -10px;
                    }
@@ -16,7 +17,7 @@
                    }
                    
                    .dropdown {
-                       margin-left: 865px;
+                       margin-left: 825px;
                        margin-top: 40px;
                    }
                    
@@ -36,6 +37,7 @@
                        border-radius: 2px 2px 0px 0px;
                        opacity: 1;
                        top: -80px;
+                       min-height: 80%;
                    }
                    
                    .imgBook {
@@ -114,6 +116,19 @@
                        border-radius: 3px;
                    }
                    
+                   .btn {
+                       margin-left: 30px;
+                       font-size: 16px;
+                       border-radius: 0px;
+                       margin-top: -22px;
+                       height: 30px;
+                   }
+                   
+                   .btn1 {
+                       margin-left: 55px;
+                       font-size: 12px;
+                   }
+                   
                    .button {
                        width: 100px;
                        margin-top: -14px;
@@ -140,47 +155,43 @@
                        border-radius: 7px;
                    }
                    
+                   main {
+                       min-height: calc(69vh - 60px - 60px);
+                   }
+                   
                    @media only screen and (max-width: 360px) {
                        .heade {
-                           margin-left: -180px;
+                           /* margin-left: -180px; */
                            display: flex;
                            flex-direction: row;
                        }
                        .bk {
-                           margin-left: 18px;
+                           margin-left: -135px;
                        }
                        h2 {
                            font-size: 16px;
                            margin-right: 7px;
                        }
                        .count {
-                           margin-top: 20px;
+                           margin-top: 30px;
                            font-size: 12px;
                            margin-left: -1px;
                            width: 70%;
                        }
                        .dropdown {
-                           margin-left: 90px;
-                           margin-top: 7px;
+                           margin-top: 30px;
+                           margin-left: 25px;
                        }
                        .book {
                            margin-left: 60px;
                        }
                        .btn {
-                           margin-right: 80px;
+                           font-size: 10px;
                        }
-                       .pagination a {
-                           color: black;
-                           float: left;
-                           padding: 8px 16px;
-                           text-decoration: none;
-                           transition: background-color .3s;
+                       .butn1 {
+                           margin-top: -70px;
                        }
-                       .pagination a.active {
-                           background-color: dodgerblue;
-                           color: white;
-                       }
-                       .pagination a:hover:not(.active) {
-                           background-color: #ddd;
+                       .page {
+                           margin-bottom: 50px;
                        }
                    }

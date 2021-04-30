@@ -3,24 +3,35 @@
     <div class="book">
         <h1 style="color: white;">BookStore</h1>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" style="padding-left: 45px;" placeholder="Search" aria-label="Search">
-        <i class="far" class="fa fa-search" style="margin-left: 105px;margin-top: -28px;color: black;"></i>
-    </form>
-    <i class="fa fa-user-o"></i>
-    <div>
+    <input class="form-control" type="search" style="padding-left: 45px;" placeholder="Search" (keyup)="search($event)" aria-label="Search">
+    <div class="ico"><i class="fa fa-search" style="color: black;"></i></div>
+
+    <div class="imgg">
+        <i class="fa fa-user-o"></i>
+    </div>
+
+    <div class="cart1">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </div>
+
+    <div class="profile d-inline-flex">
         <div ngbDropdown class="dropdown d-inline-block">
             <button class="btn" id="dropdownBasic1" ngbDropdownToggle style="color: white;">profile</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <button ngbDropdownItem><li class="disabled"><a routerLink="./profile">Profile</a></li></button>
                 <button ngbDropdownItem><li class="active"><a routerLink="./wishlist">WishList</a></li></button>
-                <button ngbDropdownItem><li><a href="# ">Logout</a></li></button>
+                <button ngbDropdownItem><li><a href="#">Logout</a></li></button>
             </div>
         </div>
+        <div>
+            <h6 class="imgcart" routerLink="./cart">cart</h6>
+        </div>
     </div>
-    <i class="cart " class="fa fa-shopping-cart " aria-hidden="true " style="margin-left:35px; "></i>
-    <div class=" d-inline-flex-column " routerLink="./cart">
-        <h6 class="imgcart" routerLink="./cart">cart</h6>
+    <div class="circle" style="background-color: white;">
+        <h6 style="font-size: 10px;padding-left: 2px;">{{length}}</h6>
     </div>
 </nav>
 <router-outlet></router-outlet>
+<div>
+    <app-footer></app-footer>
+</div>

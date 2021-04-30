@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -22,6 +22,9 @@ import { AdminRegistrationComponent } from './components/admin-registration/admi
 import { AddBooksComponent } from './components/add-books/add-books.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { FilterPipe } from './components/app-pipe/filter.pipe';
+import { FooterComponent } from './components/footer/footer.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
+import {OAuthModule} from 'angular-oauth2-oidc'
 
 @NgModule({
   declarations: [
@@ -40,9 +43,12 @@ import { FilterPipe } from './components/app-pipe/filter.pipe';
     AdminRegistrationComponent,
     AddBooksComponent,
     FilterPipe,
+    FooterComponent,
+    OrderSuccessComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
@@ -50,6 +56,8 @@ import { FilterPipe } from './components/app-pipe/filter.pipe';
     FormsModule,
     ReactiveFormsModule,
     JwPaginationModule,
+    OAuthModule.forRoot(),
+    
   ],
   providers: [AuthguardGuard],
   bootstrap: [AppComponent]

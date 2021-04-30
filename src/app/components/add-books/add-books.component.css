@@ -55,6 +55,10 @@
             /* Set the serial number counter to 0 */
         }
         
+        .arm {
+            padding-top: 35px;
+        }
+        
         .tab td:first-child:before {
             counter-increment: serial-number;
             /* Increment the serial number counter */
@@ -64,10 +68,13 @@
         
         @media only screen and (max-width: 360px) {
             .temp {
-                width: 20%;
+                width: 100%;
             }
             .btn {
                 margin-top: 30px;
+            }
+            .bttnn {
+                margin-left: -173px;
             }
             #content {
                 width: 30%;
@@ -107,5 +114,9 @@
             }
             .border {
                 padding: 10px;
+            }
+            .table {
+                margin-left: 10px;
+                margin-right: 10px;
             }
         }

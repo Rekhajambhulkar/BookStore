@@ -1,20 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../service/bookService/book.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { DataserviceService } from '../../service/dataservic/dataservice.service';
 
-export class Books{
+export class Books {
   constructor(
     public Id: string,
-     public bookName: string,
-     public author:string, 
-     public description:string, 
-     public quantity:string, 
-     public price:string,
-     public discountPrice:string ){}
+    public bookName: string,
+    public author: string,
+    public description: string,
+    public quantity: string,
+    public price: string,
+    public discountPrice: string) { }
 }
 
 @Component({
@@ -29,18 +29,16 @@ export class AddBooksComponent implements OnInit {
   id: string;
   isAddMode: boolean;
   submitted = false;
-  bookId:any;
+  bookId: any;
   collectionSize = 15;
   page = 1;
   pageSize = 4;
-  nameSearch:string;
-  bookName:any;
-  searchValue:any;
-  //searchValue:string = '';
-  constructor(private dataService:DataserviceService,private router: Router,private bookService: BookService, private modalService: NgbModal, private http: HttpClient, private fb: FormBuilder) {}
+  bookName: any;
+  searchValue: string = '';
+  constructor(private dataService: DataserviceService, private router: Router, private bookService: BookService, private modalService: NgbModal, private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-        this.getBooks();
+    this.getBooks();
     this.editForm = this.fb.group({
       bookName: [''],
       author: [''],
@@ -52,8 +50,6 @@ export class AddBooksComponent implements OnInit {
     this.dataService.currentMessage.subscribe((msg) => {
       console.log("message", msg);
       this.searchValue = msg;
-      this.getBooks();
-
     })
   }
 
@@ -116,13 +112,12 @@ export class AddBooksComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-   // this.updateBook();
   }
 
   updateBook() {
     console.log(this.editForm.value);
     console.log(this.bookId);
-    
+
     let data = {
       "bookName": this.editForm.value.bookName,
       "author": this.editForm.value.author,
@@ -133,7 +128,7 @@ export class AddBooksComponent implements OnInit {
     }
     console.log(data)
 
-   this.bookService.updateDetails(this.bookId._id, data).subscribe(res => {
+    this.bookService.updateDetails(this.bookId._id, data).subscribe(res => {
       console.log("Updated successfully", res);
       this.getBooks();
 
@@ -142,7 +137,7 @@ export class AddBooksComponent implements OnInit {
 
   openEdit(targetModal, book: Books) {
     console.log(book);
-    
+
     this.modalService.open(targetModal, {
       backdrop: 'static',
       size: 'lg'

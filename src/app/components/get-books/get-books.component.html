@@ -1,5 +1,5 @@
-<div class="heade d-inline-flex p-3">
-    <div class="d-inline-flex">
+<main>
+    <div class="heade d-inline-flex" style="margin-top: 10px;">
         <div class="bk d-inline-flex">
             <h2>
                 Books
@@ -10,42 +10,46 @@
         </div>
         <div>
             <div ngbDropdown class="dropdown d-inline-block">
-                <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>Sort by releance</button>
+                <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{sort}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem (click)="sortByPrice()">High-Low</button>
                     <button ngbDropdownItem (click)="sortByProperty()">Low-High</button>
                     <button ngbDropdownItem (click)="sortByName()">A-Z</button>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="book d-inline-flex p-4" *ngFor="let book of booksArray | slice: (page-1) * pageSize : page * pageSize">
-    <div>
-        <div class=" imgBook ">
-            <img src="../../../assets/Image 11.png ">
-        </div>
-        <div class="bookname ">
-            <h4>
-                {{book.bookName}}
-            </h4>
-            <h5>
-                {{book.author}}
-            </h5>
-            <div class="row px-3 ">
-                <div class="rating mr-2 ">4.5&#9733;</div>
-                <div class="rt ">(20)</div>
-            </div>
-            <h3>
-                Rs.{{book.discountPrice}}
-            </h3>
-            <button class="butn btn-primary" *ngIf='book.isAdded'>ADDED TO BAG</button>
 
-            <div class="btn d-inline-flex p-3" *ngIf='!book.isAdded'>
-                <button class="button " (click)="addCart(book._id) ">ADD TO BAG</button>
+    </div>
+    <div class="book d-inline-flex p-4" *ngFor="let book of booksArray | slice: (page-1) * pageSize : page * pageSize | filter: searchValue">
+        <div>
+            <div class=" imgBook ">
+                <img src="../../../assets/Image 11.png ">
+            </div>
 
-                <button class="button1 " (click)=wishList(book._id)>&hearts; WISHLIST</button>
+            <div class="bookname ">
+                <h4>
+                    {{book.bookName}}
+                </h4>
+                <h5>
+                    {{book.author}}
+                </h5>
+                <div class="row px-3 ">
+                    <div class="rating mr-2 ">4.5&#9733;</div>
+                    <div class="rt ">(20)</div>
+                </div>
+                <h3>
+                    Rs.{{book.price}}
+                </h3>
+                <button type="button" class="btn btn-primary" *ngIf="book.isAdded" style="border-radius: 7px;padding-top: 2px;font-size: 12px;margin-left: 55px;">ADDED TO BAG</button>
+                <div class="btnnn d-inline-flex p-3">
+                    <button class="button" (click)="addCart(book._id)" *ngIf="!book.isAdded">ADD TO BAG</button>
+                    <button class=" button1" (click)="wishList(book._id)" *ngIf="!book.isAdded">&hearts; WISHLIST</button>
+                </div>
             </div>
         </div>
     </div>
+
+</main>
+<div>
+    <ngb-pagination class="page d-flex justify-content-center " style="margin-top: 130px; " [(page)]="page " [pageSize]="pageSize " [collectionSize]="booksArray.length "></ngb-pagination>
 </div>
-<ngb-pagination class="d-flex justify-content-center " style="margin-top: 130px; " [(page)]="page " [pageSize]="pageSize " [collectionSize]="booksArray.length "></ngb-pagination>

@@ -13,6 +13,7 @@ import {AdminComponent} from './components/admin/admin.component';
 import {AdminDashboardComponent} from './components/admin-dashboard/admin-dashboard.component'
 import {AdminRegistrationComponent} from './components/admin-registration/admin-registration.component';
 import {AddBooksComponent} from './components/add-books/add-books.component'
+import {OrderSuccessComponent} from './components/order-success/order-success.component'
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'cart', component: CartComponent },
       { path: 'wishlist', component: WishlistComponent },
+      {path:"orderSuccess",component:OrderSuccessComponent},
     ]
   },
   {path: 'reg', component: AdminRegistrationComponent,},
@@ -39,7 +41,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -8,6 +8,8 @@ import {BookService} from '../../service/bookService/book.service'
 export class WishlistComponent implements OnInit {
   booksArray = [];
   totalCount:any;
+  book: any;
+
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
@@ -20,16 +22,34 @@ export class WishlistComponent implements OnInit {
       console.log("Success", res)
       this.booksArray = res['result'];
       console.log(this.booksArray)
-      this.booksArray = this.booksArray;
+      this.booksArray = this.booksArray;      
+      let dataShow = [];
+      this.booksArray.map(res =>{
+        if(res.product_id !== null){
+          dataShow.push(res)
+        }
+     })
+     console.log(dataShow);
+     this.booksArray.map(res =>{
+      res.isCart = false;
+      this.booksArray = dataShow;
       this.totalCount = this.booksArray.length;
+     })
+     console.log(this.booksArray);
     })
   }
 
   removeBook(id:string){
+    
     this.bookService.remove(id).subscribe(res =>{
       console.log("Deleted Successfully",res);
       console.log(this.booksArray);
       this.getwishList();
+      this.booksArray.map(res =>{
+      if(res.product_id == null){
+        this.booksArray.pop();
+      }
+    });
     })
-  }
+    }  
 }

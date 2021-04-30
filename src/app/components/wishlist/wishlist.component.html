@@ -1,30 +1,31 @@
-<div class="container">
-    <div class="header d-inline-flex">
-        <h5 class="list">My Wishlist</h5>
-        <h6 style="margin-top: 17px;">
-            ({{totalCount}})
-        </h6>
-    </div>
-    <div class="book d-inline-flex-column p-4" *ngFor="let book of booksArray">
-        <div class="d-inline-flex">
-            <div class="imgBook">
-                <img src="../../../assets/Image 11.png">
-            </div>
-            <div class="bookname">
-                <div class="d-inline-flex">
-                    <h4>
-                        {{book.product_id.bookName}}
-                    </h4>
-                    <div class="img1" (click)="removeBook(book.product_id._id)"><i class="fa fa-trash" style="color: gray; margin-left:750px;"></i></div>
+<main>
+    <div class="container">
+        <div class="header d-inline-flex">
+            <h5 class="list">My Wishlist</h5>
+            <h6 style="margin-top: 17px;">
+                ({{totalCount}})
+            </h6>
+        </div>
+        <div class="book d-inline-flex-column p-4" *ngFor="let book of booksArray">
+            <div class="d-inline-flex">
+                <div class="imgBook">
+                    <img src="../../../assets/Image 11.png">
                 </div>
-
-                <h5>
-                    {{book.product_id.author}}
-                </h5>
-                <h3>
-                    Rs.{{book.product_id.price}}
-                </h3>
+                <div class="bookname">
+                    <div class="d-inline-flex">
+                        <h4>
+                            {{book.product_id.bookName}}
+                        </h4>
+                        <div class="img1" (click)="removeBook(book.product_id._id)"><i class="fa fa-trash" style="color: gray; margin-left:730px;"></i></div>
+                    </div>
+                    <h5>
+                        {{book.product_id.author}}
+                    </h5>
+                    <h3>
+                        Rs.{{book.product_id.price}}
+                    </h3>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>

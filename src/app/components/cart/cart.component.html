@@ -1,15 +1,146 @@
-<div class="container">
-    <div class="mycart d-inline-flex-column">
-        <div class="d-inline-flex">
-            <h4 style="margin-left: 0px;">MY Cart</h4>
+<main>
+    <div class="container">
+        <div class="mycart d-inline-flex-column">
+            <div class="d-inline-flex">
+                <h4 style=" margin-left: 0px; ">MY Cart</h4>
+                <h5>({{totalItems}})</h5>
+            </div>
+            <div class="book d-inline-flex-column p-4 " *ngFor="let book of booksArray ">
+                <div class="d-inline-flex ">
+                    <div class="imgBook ">
+                        <img src="../../../assets/Image 11.png ">
+                    </div>
+                    <div class="bookname ">
+                        <h4>
+                            {{book.product_id.bookName}}
+                        </h4>
+                        <h5>
+                            {{book.product_id.author}}
+                        </h5>
+
+                        <h3>
+                            Rs.{{book.product_id.price * book.quantityToBuy}}
+                        </h3>
+                        <div class="d-inline-flex ">
+                            <div class="circle ">
+                                <h3 class="minus " (click)="decreaseItemCount(book) "><i class="fa fa-minus "></i></h3>
+                            </div>
+                            <div class="square ">
+                                <h5 style="margin-top: 5px;margin-left: 15px; ">{{book.quantityToBuy}}</h5>
+                            </div>
+                            <div class="circle ">
+                                <h3 class="plus "><i class="fa fa-plus " aria-hidden="true " (click)="increaseItemCount(book) "></i></h3>
+                            </div>
+                            <a class="remove " style="margin-left: 55px; font-weight: bold;font-size: 12px;cursor: pointer; " (click)="removeItems(book._id) ">Remove</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="place ">
+                <button type="button " class="button btn-primary " (click)="toggleDisplay() " *ngIf="!isShow ">PLACE ORDER</button>
+            </div>
+        </div>
+    </div>
+    <div class="address ">
+        <div *ngIf="!isShow ">
+            <h5 class="details ">Address Details</h5>
+        </div>
+
+        <div class="customer " *ngIf="isShow ">
+            <div class="d d-inline-flex " *ngIf="isShow ">
+                <h5 class="details " style="font-size: 18px; " (click)="toggleDisplay() ">Customer Details</h5>
+                <button class="btn btn-outline-danger " type="button " style="margin-top: 20px; ">Add New Address</button><br>
+            </div>
+            <div class="pro d-flex p-3 ">
+                <div>
+                    <label for="fullname ">Fullname</label><br>
+                    <input type="text " id="name " placeholder="Fullname " name="name " class="name ">
+                </div>
+                <div>
+                    <label for="number " style="margin-left: 2px; ">Mobile Number</label><br>
+                    <input type="text " id="number " placeholder="Mobile Number " name="number " class="number ">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" style="margin-left: 52px;">Address</label>
+                <textarea class="form-control" rows="5"></textarea>
+            </div>
+            <div class="citystate d-flex p-3">
+                <div>
+                    <label for="address">City/Town</label><br>
+                    <input type="text" id="city" placeholder="city" name="city" class="city">
+                </div>
+                <div>
+                    <label for="address " style="margin-left: 12px; ">State</label><br>
+                    <input type="text " id="state " placeholder="state " name="state " class="state " style="margin-right: 190px; ">
+                </div>
+
+            </div>
+            <div>
+                <label for="type " style="margin-left: 50px; ">Type</label>
+            </div>
+
+            <div class="form-check-inline " style="margin-left: 47px; ">
+                <label class="form-check-label " for="radio1 ">
+                      <input  type="radio " class="form-check-input " id="radio1 " name="optradio " value="option1 " checked>Home
+                    </label>
+            </div>
+            <div class="form-check-inline ">
+                <label class="form-check-label " for="radio2 ">
+                      <input class="radio " type="radio " class="form-check-input " id="radio2 " name="optradio " value="option2 " checked>Work
+                    </label>
+            </div>
+            <div class="form-check-inline ">
+                <label class="form-check-label ">
+                      <input class="radio " type="radio " class="form-check-input " id="radio2 " name="optradio " value="option3 " checked>Other
+                </label>
+            </div>
+            <div class="btn1 " (click)="toggleDisplay1() ">
+                <button type="button " class="button btn-primary " style="margin-left: 35px; " *ngIf="!show ">CONTINUE</button>
+            </div>
+        </div>
+    </div>
+    <div class="order ">
+        <div *ngIf="!show ">
+            <h5 class="summ " (click)="toggleDisplay1() ">Order Summery</h5>
+        </div>
+        <div class="odd " *ngIf="show ">
+            <div class=" d d-inline-flex " *ngIf="show ">
+                <h5 class="summ " style="font-size: 18px; " (click)="toggleDisplay1() ">Order Summery</h5>
+            </div>
+            <div *ngFor="let book of booksArray ">
+                <div class="book1 d-inline-flex-column p-4 ">
+                    <div class=" d-inline-flex ">
+                        <div class="imgBook ">
+                            <img src="../../../assets/Image 11.png ">
+                        </div>
+                        <div class="bookname ">
+                            <h4>{{book.product_id.bookName}}</h4>
+                            <h5>{{book.product_id.author}}</h5>
+                            <h3>Rs.{{book.product_id.price}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="btt ">
+                    <button type="button " class="button btn-primary " (click)="orderPlace(book) ">CHECKOUT</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<!-- <div class="container ">
+    <div class="mycart d-inline-flex-column ">
+        <div class="d-inline-flex ">
+            <h4 style="margin-left: 0px; ">MY Cart</h4>
             <h5>({{totalItems}})</h5>
         </div>
-        <div class="book d-inline-flex-column p-4" *ngFor="let book of booksArray">
-            <div class="d-inline-flex">
-                <div class="imgBook">
-                    <img src="../../../assets/Image 11.png">
+        <div class="book d-inline-flex-column p-4 " *ngFor="let book of booksArray ">
+            <div class="d-inline-flex ">
+                <div class="imgBook ">
+                    <img src="../../../assets/Image 11.png ">
                 </div>
-                <div class="bookname">
+                <div class="bookname ">
                     <h4>
                         {{book.product_id.bookName}}
                     </h4>
@@ -20,23 +151,23 @@
                     <h3>
                         Rs.{{book.product_id.price * book.quantityToBuy}}
                     </h3>
-                    <div class="d-inline-flex">
-                        <div class="circle">
-                            <h3 class="minus" (click)="decreaseItemCount(book)"><i class="fa fa-minus"></i></h3>
+                    <div class="d-inline-flex ">
+                        <div class="circle ">
+                            <h3 class="minus " (click)="decreaseItemCount(book) "><i class="fa fa-minus "></i></h3>
                         </div>
-                        <div class="square">
-                            <h5 style="margin-top: 5px;margin-left: 15px;">{{book.quantityToBuy}}</h5>
+                        <div class="square ">
+                            <h5 style="margin-top: 5px;margin-left: 15px; ">{{book.quantityToBuy}}</h5>
                         </div>
-                        <div class="circle">
-                            <h3 class="plus"><i class="fa fa-plus" aria-hidden="true" (click)="increaseItemCount(book)"></i></h3>
+                        <div class="circle ">
+                            <h3 class="plus "><i class="fa fa-plus " aria-hidden="true " (click)="increaseItemCount(book) "></i></h3>
                         </div>
-                        <a class="remove" style="margin-left: 55px; font-weight: bold;font-size: 12px;" (click)="removeItems(book._id)">Remove</a>
+                        <a class="remove " style="margin-left: 55px; font-weight: bold;font-size: 12px;cursor: pointer; " (click)="removeItems(book._id) ">Remove</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="place">
-            <button type="button" class="button btn-primary" (click)="toggleDisplay()" *ngIf="!isShow">PLACE ORDER</button>
+        <div class="place ">
+            <button type="button " class="button btn-primary " (click)="toggleDisplay() " *ngIf="!isShow ">PLACE ORDER</button>
         </div>
     </div>
 </div>
@@ -81,21 +212,21 @@
 
         <div class="form-check-inline " style="margin-left: 47px; ">
             <label class="form-check-label " for="radio1 ">
-                  <input  type="radio" class="form-check-input " id="radio1 " name="optradio " value="option1 " checked>Home
+                  <input  type="radio " class="form-check-input " id="radio1 " name="optradio " value="option1 " checked>Home
                 </label>
         </div>
         <div class="form-check-inline ">
             <label class="form-check-label " for="radio2 ">
-                  <input class="radio" type="radio" class="form-check-input" id="radio2 " name="optradio " value="option2 " checked>Work
+                  <input class="radio " type="radio " class="form-check-input " id="radio2 " name="optradio " value="option2 " checked>Work
                 </label>
         </div>
         <div class="form-check-inline ">
             <label class="form-check-label ">
-                  <input class="radio" type="radio" class="form-check-input" id="radio2 " name="optradio " value="option3 " checked>Other
+                  <input class="radio " type="radio " class="form-check-input " id="radio2 " name="optradio " value="option3 " checked>Other
             </label>
         </div>
-        <div class="btn1" (click)="toggleDisplay1()">
-            <button type="button" class="button btn-primary " style="margin-left: 35px;" *ngIf="!show">CONTINUE</button>
+        <div class="btn1 " (click)="toggleDisplay1() ">
+            <button type="button " class="button btn-primary " style="margin-left: 35px; " *ngIf="!show ">CONTINUE</button>
         </div>
     </div>
 </div>
@@ -104,10 +235,10 @@
         <h5 class="summ " (click)="toggleDisplay1() ">Order Summery</h5>
     </div>
     <div class="odd " *ngIf="show ">
-        <div class="d d-inline-flex " *ngIf="show ">
+        <div class=" d d-inline-flex " *ngIf="show ">
             <h5 class="summ " style="font-size: 18px; " (click)="toggleDisplay1() ">Order Summery</h5>
         </div>
-        <div *ngFor="let book of booksArray">
+        <div *ngFor="let book of booksArray ">
             <div class="book1 d-inline-flex-column p-4 ">
                 <div class=" d-inline-flex ">
                     <div class="imgBook ">
@@ -120,9 +251,10 @@
                     </div>
                 </div>
             </div>
-            <div class="btt">
+            <div class="btt ">
                 <button type="button " class="button btn-primary " (click)="orderPlace(book) ">CHECKOUT</button>
             </div>
         </div>
+
     </div>
-</div>
+</div> -->

@@ -8,7 +8,6 @@ import { DataserviceService } from '../../service/dataservic/dataservice.service
 })
 export class AdminDashboardComponent implements OnInit {
   searchValue:any;
-  namesearch:string;
   constructor(private dataService:DataserviceService) { }
 
   ngOnInit(): void {
@@ -19,5 +18,4 @@ export class AdminDashboardComponent implements OnInit {
     let values = event.target.value;
     this.dataService.changeMessage(values);
   }
-
 }

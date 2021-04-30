@@ -1,11 +1,16 @@
+main {
+    min-height: calc(78vh - 60px - 60px);
+}
+
 .container {
     margin-top: 112px;
     left: 177px;
     width: 1022px;
-    height: 410px;
+    height: auto;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #E4E4E4;
-    opacity: 1
+    opacity: 1;
+    margin-bottom: 292px;
 }
 
 .header {
@@ -38,6 +43,7 @@ h4 {
     color: #0A0102;
     opacity: 1;
     font-weight: bold;
+    font-size: 18px;
 }
 
 h5 {
@@ -71,12 +77,14 @@ h3 {
 
 @media only screen and (max-width: 360px) {
     .container {
-        width: 380px;
+        width: 340px;
+        margin-left: 10px;
+        margin-top: 20px;
     }
     .img1 {
-        margin-left: -620px;
+        margin-left: -690px;
     }
     .header {
-        width: 380px;
+        width: 340px;
     }
 }

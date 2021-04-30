@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { BookService } from '../../service/bookService/book.service'
 import { UserService } from '../../service/userservice/user.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,10 +16,11 @@ export class CartComponent implements OnInit {
   count: any;
   book: any;
 
-  constructor(private bookService: BookService, private userService: UserService) { }
+  constructor(private bookService: BookService, private userService: UserService, private route:Router) { }
 
   ngOnInit(): void {
     this.getCart();
+    //this.totalItem.emit(this.totalItems);
   }
 
   getCart() {
@@ -37,6 +39,11 @@ export class CartComponent implements OnInit {
       console.log("Success", res)
       console.log(this.booksArray);
       this.getCart();
+      this.booksArray.map(res =>{
+        if(res.product_id == null){
+          this.booksArray.pop();
+        }
+      });
     })
   }
 
@@ -73,9 +80,9 @@ export class CartComponent implements OnInit {
     this.show = !this.show;
   }
 
-  orderPlace(book: any) {
-    console.log("book", book);
-      let orders =
+  orderPlace(book) {
+       
+            let orders =
     {
 
     "orders":[
@@ -90,8 +97,8 @@ export class CartComponent implements OnInit {
    console.log(book);
 
     this.bookService.orderPlace(orders).subscribe(res => {
-    console.log("Success", res);
-    
-    })
+   console.log("Success", res);
+   this.route.navigate(['dashboard/orderSuccess'])
+      })
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../service/userservice/user.service'
 import {Router} from '@angular/router'
+import { Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -14,6 +15,10 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
+
 
   adminLogin(data: any){
     let logindata = {
